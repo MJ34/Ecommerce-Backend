@@ -3,6 +3,7 @@ package com.mujidev.ecommerce.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,9 +42,9 @@ public class PenggunaController {
         return penggunaService.edit(pengguna);
     }
 
-    @PutMapping("/penggunas")
-    public Pengguna deleteBy(@PathVariable("id") String id) {
-        return penggunaService.edit(pengguna);
+    @DeleteMapping("/penggunas")
+    public void deleteById(@PathVariable("id") String id) {
+       penggunaService.deleteById(id);
     }
     
 }

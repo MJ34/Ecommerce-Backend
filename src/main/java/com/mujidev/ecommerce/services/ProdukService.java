@@ -1,6 +1,7 @@
 package com.mujidev.ecommerce.services;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,6 +47,7 @@ public class ProdukService {
         kategoriRepository.findById(produk.getKategori().getId())
         .orElseThrow(() -> new BadRequestException("Kategori ID " + produk.getKategori().getId() + " tidak ditemukan dalam database"));
 
+        produk.setId(UUID.randomUUID().toString());
         return produkRepository.save(produk);
     }
 
